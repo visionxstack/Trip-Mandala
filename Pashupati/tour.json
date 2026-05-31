@@ -1,0 +1,88 @@
+{
+  "default": {
+    "firstScene": "1",
+    "autoLoad": true,
+    "sceneFadeDuration": 1000,
+    "showControls": true
+  },
+  "scenes": {
+    "1": {
+      "title": "Entrance Area",
+      "type": "equirectangular",
+      "panorama": "1.jpg",
+      "hotSpots": [
+        { "id": "Travel",  "yaw": -77.5,  "pitch": -13.9, "type": "scene", "text": "Start Your Journey",    "sceneId": "2" },
+        { "id": "Info6",   "yaw": -176.8, "pitch": -12.9, "type": "info",  "text": "Baba – A respectful term often used for a holy man, sadhu, ascetic, or spiritual figure. Not every \"Baba\" is a priest." },
+        { "id": "Info7",   "yaw": -113.4, "pitch": 1.1,   "type": "info",  "text": "Way to Guhyeshwari Shaktipeeth Temple" },
+        { "id": "Inf5",    "yaw": 55.8,   "pitch": -2.4,  "type": "info",  "text": "Kriya Ghar – A house or facility where mourners stay during the mourning period and perform rituals." },
+        { "id": "Info4",   "yaw": -148.3, "pitch": -13.4, "type": "info",  "text": "Street vendor selling flowers" },
+        { "id": "Info3",   "yaw": -70.1,  "pitch": 2.8,   "type": "info",  "text": "Entrance to the temple" },
+        { "id": "Info2",   "yaw": 87.7,   "pitch": -4.1,  "type": "info",  "text": "Local Business" },
+        { "id": "Info",    "yaw": 120.2,  "pitch": -6.1,  "type": "info",  "text": "Local Business" }
+      ]
+    },
+    "2": {
+      "title": "Pathway Area",
+      "type": "equirectangular",
+      "panorama": "2.jpg",
+      "hotSpots": [
+        { "id": "Travel1", "yaw": -37.2,  "pitch": -10.1, "type": "scene", "text": "Explore More",    "sceneId": "3" },
+        { "id": "Travel2", "yaw": 156.6,  "pitch": -8,    "type": "scene", "text": "Return Back",     "sceneId": "1" },
+        { "id": "Info8",   "yaw": 34,     "pitch": -12.1, "type": "info",  "text": "Pigeons feeding area" },
+        { "id": "Info9",   "yaw": 30.6,   "pitch": -1.5,  "type": "info",  "text": "Shoes collection zone" },
+        { "id": "Info11",  "yaw": -18.7,  "pitch": -4.8,  "type": "info",  "text": "Dustbins to keep the area clean" }
+      ]
+    },
+    "3": {
+      "title": "Sacred Grounds",
+      "type": "equirectangular",
+      "panorama": "3.jpg",
+      "hotSpots": [
+        { "id": "Travel3", "yaw": -40.7,  "pitch": -7.4,  "type": "scene", "text": "Explore More",  "sceneId": "4" },
+        { "id": "Return2", "yaw": 147.6,  "pitch": -5.8,  "type": "scene", "text": "Return Back",   "sceneId": "2" },
+        { "id": "Info12",  "yaw": -157.8, "pitch": -2.6,  "type": "info",  "text": "Place where different Hindu rituals are performed" },
+        { "id": "Info13",  "yaw": 10,     "pitch": 12.2,  "type": "info",  "text": "Cultural preservation center" },
+        { "id": "Info14",  "yaw": -66.7,  "pitch": -11.8, "type": "info",  "text": "Hindu Priest" }
+      ]
+    },
+    "4": {
+      "title": "Temple Gate",
+      "type": "equirectangular",
+      "panorama": "4.jpg",
+      "hotSpots": [
+        { "id": "Travel4", "yaw": -50.8,  "pitch": -10.3, "type": "scene", "text": "Explore More",  "sceneId": "5" },
+        { "id": "Return4", "yaw": 101.8,  "pitch": -8.8,  "type": "scene", "text": "Return Back",   "sceneId": "3" },
+        { "id": "Info15",  "yaw": -175.5, "pitch": -5.5,  "type": "info",  "text": "Place where different Hindu rituals are performed" },
+        { "id": "Info16",  "yaw": -51.9,  "pitch": 6.6,   "type": "info",  "text": "Main Entrance to the temple" },
+        { "id": "Info17",  "yaw": -1.5,   "pitch": 0.2,   "type": "info",  "text": "Main Exit from the temple" },
+        { "id": "Info18",  "yaw": -43.3,  "pitch": -0.7,  "type": "info",  "text": "Photo and video are prohibited inside the sacred temple" }
+      ]
+    },
+    "5": {
+      "title": "Arya Ghat & Bagmati",
+      "type": "equirectangular",
+      "panorama": "5.jpg",
+      "hotSpots": [
+        { "id": "Travel5", "yaw": -34.5,  "pitch": -11.2, "type": "scene", "text": "Explore More",  "sceneId": "6" },
+        { "id": "Return5", "yaw": 138,    "pitch": -20.3, "type": "scene", "text": "Return Back",   "sceneId": "4" },
+        { "id": "Info19",  "yaw": 179.8,  "pitch": 20.4,  "type": "info",  "text": "Pashupatinath Temple" },
+        { "id": "Info21",  "yaw": -172.4, "pitch": -35.9, "type": "info",  "text": "Arya Ghat (आर्यघाट) – The cremation place at Pashupatinath." },
+        { "id": "Info22",  "yaw": -143.8, "pitch": -17.6, "type": "info",  "text": "Arya Ghat (आर्यघाट) – The cremation place at Pashupatinath." },
+        { "id": "Info23",  "yaw": 59.3,   "pitch": -5.2,  "type": "info",  "text": "Arya Ghat (आर्यघाट) – The cremation place at Pashupatinath." },
+        { "id": "Info20",  "yaw": -96,    "pitch": -5,    "type": "info",  "text": "Bagmati Aarati Area" },
+        { "id": "Info24",  "yaw": -136.7, "pitch": -37.9, "type": "info",  "text": "Bagmati River" },
+        { "id": "Info25",  "yaw": -38.7,  "pitch": -1.3,  "type": "info",  "text": "Way to Mrigasthali" }
+      ]
+    },
+    "6": {
+      "title": "Mrigasthali",
+      "type": "equirectangular",
+      "panorama": "6.jpg",
+      "hotSpots": [
+        { "id": "TravelBack6", "yaw": 1.6,   "pitch": -16.9, "type": "scene", "text": "Return Back",    "sceneId": "5" },
+        { "id": "Info26",      "yaw": 76.6,  "pitch": 13.7,  "type": "info",  "text": "Mrigasthali (मृगस्थली) – Place where the deer are kept" },
+        { "id": "Info10",      "yaw": 172.9, "pitch": 2.9,   "type": "info",  "text": "End of virtual journey — explore Pashupatinath Temple in real life to see more!" }
+      ]
+    }
+  }
+}

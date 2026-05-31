@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Pashupatinath 360 Tour</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/pannellum/build/pannellum.css"/>
+  <style>
+    * { box-sizing: border-box; }
+    body { margin: 0; display: flex; height: 100vh; font-family: Arial, sans-serif; background: #1a1a1a; }
+
+    #panorama { width: 65%; height: 100vh; }
+
+    #info {
+      width: 35%;
+      padding: 24px 20px;
+      background: #f7f5f0;
+      overflow-y: auto;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+
+    #info h1 {
+      margin: 0 0 4px;
+      font-size: 20px;
+      color: #1a1a1a;
+    }
+
+    #info .subtitle {
+      font-size: 13px;
+      color: #777;
+      margin: 0 0 16px;
+    }
+
+    #scene-title {
+      font-size: 15px;
+      font-weight: bold;
+      color: #333;
+      background: #ece8df;
+      border-left: 4px solid #b5450b;
+      padding: 8px 12px;
+      border-radius: 0 6px 6px 0;
+    }
+
+    #hotspot-info {
+      background: white;
+      border: 1px solid #ddd;
+      border-radius: 8px;
+      padding: 12px 14px;
+      font-size: 14px;
+      color: #444;
+      min-height: 60px;
+      line-height: 1.5;
+    }
+
+    #hotspot-info.empty { color: #aaa; font-style: italic; }
+
+    .scene-list { display: flex; flex-direction: column; gap: 6px; }
+    .scene-list h3 { margin: 0 0 6px; font-size: 13px; text-transform: uppercase; color: #999; letter-spacing: 0.05em; }
+
+    .scene-btn {
+      background: white;
+      border: 1px solid #ddd;
+      border-radius: 6px;
+      padding: 8px 12px;
+      font-size: 13px;
+      cursor: pointer;
+      text-align: left;
+      color: #333;
+      transition: background 0.15s;
+    }
+    .scene-btn:hover { background: #f0ede8; }
+    .scene-btn.active { background: #b5450b; color: white; border-color: #b5450b; }
+
+    .tip {
+      font-size: 12px;
+      color: #999;
+      background: #f0ede8;
+      border-radius: 6px;
+      padding: 8px 12px;
+      line-height: 1.5;
+    }
+  </style>
+</head>
+<body>
+
+<div id="panorama"></div>
+
+<div id="info">
+  <div>
+    <h1>Pashupatinath Temple</h1>
+    <p class="subtitle">Virtual 360° Tour — Kathmandu, Nepal</p>
+  </div>
+
+  <div id="scene-title">Scene 1 — Entrance Area</div>
+
+  <div>
+    <strong style="font-size:13px; color:#666;">Hotspot info</strong>
+    <div id="hotspot-info" class="empty">Click an info hotspot (ℹ) to read about it here.</div>
+  </div>
+
+  <div class="scene-list">
+    <h3>Jump to scene</h3>
+    <button class="scene-btn active" data-scene="1" onclick="goToScene('1', this)">Scene 1 – Entrance</button>
+    <button class="scene-btn" data-scene="2" onclick="goToScene('2', this)">Scene 2 – Pathway</button>
+    <button class="scene-btn" data-scene="3" onclick="goToScene('3', this)">Scene 3 – Sacred Grounds</button>
+    <button class="scene-btn" data-scene="4" onclick="goToScene('4', this)">Scene 4 – Temple Gate</button>
+    <button class="scene-btn" data-scene="5" onclick="goToScene('5', this)">Scene 5 – Arya Ghat</button>
+    <button class="scene-btn" data-scene="6" onclick="goToScene('6', this)">Scene 6 – Mrigasthali</button>
+  </div>
+
+  <p class="tip">🕌 Use the arrow hotspots to walk through the tour, or jump to any scene above. Click ℹ icons to learn about each spot.</p>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/pannellum/build/pannellum.js"></script>
+<script>
+const sceneTitles = {
+  "1": "Scene 1 – Entrance Area",
+  "2": "Scene 2 – Pathway & Pigeons",
+  "3": "Scene 3 – Sacred Grounds",
+  "4": "Scene 4 – Temple Gate",
+  "5": "Scene 5 – Arya Ghat & Bagmati",
+  "6": "Scene 6 – Mrigasthali"
+};
+
+const viewer = pannellum.viewer('panorama', {
+  default: {
+    firstScene: "1",
+    autoLoad: true,
+    sceneFadeDuration: 1000,
+    showControls: true
+  },
+
+  scenes: {
+    "1": {
+      title: "Entrance Area",
+      type: "equirectangular",
+      panorama: "1.jpg",
+      hotSpots: [
+        { id: "Travel",  yaw: -77.5,  pitch: -13.9, type: "scene", text: "Start Your Journey",    sceneId: "2" },
+        { id: "Info6",   yaw: -176.8, pitch: -12.9, type: "info",  text: "Baba – A respectful term often used for a holy man, sadhu, ascetic, or spiritual figure. Not every \"Baba\" is a priest." },
+        { id: "Info7",   yaw: -113.4, pitch: 1.1,   type: "info",  text: "Way to Guhyeshwari Shaktipeeth Temple" },
+        { id: "Inf5",    yaw: 55.8,   pitch: -2.4,  type: "info",  text: "Kriya Ghar – A house or facility where mourners stay during the mourning period and perform rituals." },
+        { id: "Info4",   yaw: -148.3, pitch: -13.4, type: "info",  text: "Street vendor selling flowers" },
+        { id: "Info3",   yaw: -70.1,  pitch: 2.8,   type: "info",  text: "Entrance to the temple" },
+        { id: "Info2",   yaw: 87.7,   pitch: -4.1,  type: "info",  text: "Local Business" },
+        { id: "Info",    yaw: 120.2,  pitch: -6.1,  type: "info",  text: "Local Business" }
+      ]
+    },
+    "2": {
+      title: "Pathway Area",
+      type: "equirectangular",
+      panorama: "2.jpg",
+      hotSpots: [
+        { id: "Travel1", yaw: -37.2,  pitch: -10.1, type: "scene", text: "Explore More",    sceneId: "3" },
+        { id: "Travel2", yaw: 156.6,  pitch: -8,    type: "scene", text: "Return Back",     sceneId: "1" },
+        { id: "Info8",   yaw: 34,     pitch: -12.1, type: "info",  text: "Pigeons feeding area" },
+        { id: "Info9",   yaw: 30.6,   pitch: -1.5,  type: "info",  text: "Shoes collection zone" },
+        { id: "Info11",  yaw: -18.7,  pitch: -4.8,  type: "info",  text: "Dustbins to keep the area clean" }
+      ]
+    },
+    "3": {
+      title: "Sacred Grounds",
+      type: "equirectangular",
+      panorama: "3.jpg",
+      hotSpots: [
+        { id: "Travel3", yaw: -40.7,  pitch: -7.4,  type: "scene", text: "Explore More",  sceneId: "4" },
+        { id: "Return2", yaw: 147.6,  pitch: -5.8,  type: "scene", text: "Return Back",   sceneId: "2" },
+        { id: "Info12",  yaw: -157.8, pitch: -2.6,  type: "info",  text: "Place where different Hindu rituals are performed" },
+        { id: "Info13",  yaw: 10,     pitch: 12.2,  type: "info",  text: "Cultural preservation center" },
+        { id: "Info14",  yaw: -66.7,  pitch: -11.8, type: "info",  text: "Hindu Priest" }
+      ]
+    },
+    "4": {
+      title: "Temple Gate",
+      type: "equirectangular",
+      panorama: "4.jpg",
+      hotSpots: [
+        { id: "Travel4", yaw: -50.8,  pitch: -10.3, type: "scene", text: "Explore More",  sceneId: "5" },
+        { id: "Return4", yaw: 101.8,  pitch: -8.8,  type: "scene", text: "Return Back",   sceneId: "3" },
+        { id: "Info15",  yaw: -175.5, pitch: -5.5,  type: "info",  text: "Place where different Hindu rituals are performed" },
+        { id: "Info16",  yaw: -51.9,  pitch: 6.6,   type: "info",  text: "Main Entrance to the temple" },
+        { id: "Info17",  yaw: -1.5,   pitch: 0.2,   type: "info",  text: "Main Exit from the temple" },
+        { id: "Info18",  yaw: -43.3,  pitch: -0.7,  type: "info",  text: "Photo and video are prohibited inside the sacred temple" }
+      ]
+    },
+    "5": {
+      title: "Arya Ghat & Bagmati",
+      type: "equirectangular",
+      panorama: "5.jpg",
+      hotSpots: [
+        { id: "Travel5", yaw: -34.5,  pitch: -11.2, type: "scene", text: "Explore More",  sceneId: "6" },
+        { id: "Return5", yaw: 138,    pitch: -20.3, type: "scene", text: "Return Back",   sceneId: "4" },
+        { id: "Info19",  yaw: 179.8,  pitch: 20.4,  type: "info",  text: "Pashupatinath Temple" },
+        { id: "Info21",  yaw: -172.4, pitch: -35.9, type: "info",  text: "Arya Ghat (आर्यघाट) – The cremation place at Pashupatinath." },
+        { id: "Info22",  yaw: -143.8, pitch: -17.6, type: "info",  text: "Arya Ghat (आर्यघाट) – The cremation place at Pashupatinath." },
+        { id: "Info23",  yaw: 59.3,   pitch: -5.2,  type: "info",  text: "Arya Ghat (आर्यघाट) – The cremation place at Pashupatinath." },
+        { id: "Info20",  yaw: -96,    pitch: -5,    type: "info",  text: "Bagmati Aarati Area" },
+        { id: "Info24",  yaw: -136.7, pitch: -37.9, type: "info",  text: "Bagmati River" },
+        { id: "Info25",  yaw: -38.7,  pitch: -1.3,  type: "info",  text: "Way to Mrigasthali" }
+      ]
+    },
+    "6": {
+      title: "Mrigasthali",
+      type: "equirectangular",
+      panorama: "6.jpg",
+      hotSpots: [
+        { id: "TravelBack6", yaw: 1.6,   pitch: -16.9, type: "scene", text: "Return Back",    sceneId: "5" },
+        { id: "Info26",      yaw: 76.6,  pitch: 13.7,  type: "info",  text: "Mrigasthali (मृगस्थली) – Place where the deer are kept" },
+        { id: "Info10",      yaw: 172.9, pitch: 2.9,   type: "info",  text: "End of virtual journey — explore Pashupatinath Temple in real life to see more!" }
+      ]
+    }
+  }
+});
+
+viewer.on('scenechange', function(sceneId) {
+  document.getElementById('scene-title').textContent = sceneTitles[sceneId] || ('Scene ' + sceneId);
+  document.getElementById('hotspot-info').textContent = 'Click an info hotspot (ℹ) to read about it here.';
+  document.getElementById('hotspot-info').className = 'empty';
+  document.querySelectorAll('.scene-btn').forEach(btn => {
+    btn.classList.toggle('active', btn.dataset.scene === sceneId);
+  });
+});
+
+viewer.on('hotspotfocus', function(clientX, clientY, name) {
+  const scene = viewer.getScene();
+  const scenes = viewer.getConfig().scenes;
+  const hs = scenes[scene]?.hotSpots?.find(h => h.id === name);
+  if (hs && hs.type === 'info') {
+    const el = document.getElementById('hotspot-info');
+    el.textContent = hs.text;
+    el.className = '';
+  }
+});
+
+function goToScene(id, btn) {
+  viewer.loadScene(id);
+}
+</script>
+</body>
+</html>
